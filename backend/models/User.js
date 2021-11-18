@@ -20,6 +20,7 @@ const UserSchema = new Schema({
     type: String,
     required: true,
   },
+  resetCode: Number,
   phone: Number,
   isActive: { type: Boolean, default: false },
   isAdmin: { type: Boolean, default: false },

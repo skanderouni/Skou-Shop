@@ -1,49 +1,14 @@
 const express = require('express');
-const { signup } = require('../controllers/user.controller.js');
-const isAuth = require('../middleware/isAuth');
+const {activateAccount, deleteAccount, forgetPassword, resetPassword, updatePassword, signup, login, changeRole} = require("../controllers/user.controller");
 const router = express.Router();
 
 router.post('/register', signup);
-/*
-const {
-  validation,
-  registerValidate,
-  loginValidate,
-} = require('../middleware/validateUser');
+router.post('/login', login);
+router.patch('/activateAccount/', activateAccount);
+router.delete('/deleteAccount', deleteAccount);
+router.patch('/updatePassword', updatePassword);
+router.patch('/forgetPassword', forgetPassword);
+router.patch('/resetPassword', resetPassword);
+router.patch('/changeRole', changeRole);
 
-const router = express.Router();
-
-router.get('/', (req, res) => {
-  res.send('testing router in here');
-});
-
-/*
-@method: POST
-@ path:http:localhost:6000/api/user/register
-@ parameter: req.body  
-public
-*/
-//router.post('/register', registerValidate(), validation, Register);
-
-/*
-@method: POST
-@ path:http:localhost:6000/api/user/login
-@ parameter: req.body  
-public
-*/
-//router.post('/login', loginValidate(), validation, Login);
-
-/*
-@method: GET
-@ path:http:localhost:6000/api/user/current
-@ parameter: req.headers  
-public
-*/
-/*
-router.get('/current', isAuth, (req, res) => {
-  res.send({ msg: 'authorized', user: req.user });
-});
-*/
-
-// default export
 module.exports = router;
