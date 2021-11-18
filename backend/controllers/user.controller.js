@@ -40,12 +40,13 @@ exports.signup = (req, res) => {
                     } else {
                         const resetCode = Math.floor(Math.random() * 9999);
                         const user = new User({
-                            _id: new mongoose.Types.ObjectId(),
-                            email: req.body.email,
-                            password: hash,
-                            phone: req.body.phone,
-                            name: req.body.name,
-                            resetCode: resetCode
+                          _id: new mongoose.Types.ObjectId(),
+              email: req.body.email,
+              password: hash,
+              phone: req.body.phone,
+              FirstName: req.body.FirstName,
+              LastName: req.body.LastName,
+              resetCode: resetCode,
                         });
                         let mailOptions = {
                             from: 'Aikido.ClubT@gmail.com',
