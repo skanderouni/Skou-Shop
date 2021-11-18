@@ -1,12 +1,6 @@
 const mongoose = require('mongoose');
 const { Schema, model } = mongoose;
 
-const reviewSchema = new Schema({
-  _id: Schema.Types.ObjectId,
-  name: { type: String, required: true },
-  rating: { type: Number, default: 0 },
-  comment: { type: String, required: true },
-});
 const ProdctSchema = new Schema({
   _id: Schema.Types.ObjectId,
   name: { type: String, required: true },
