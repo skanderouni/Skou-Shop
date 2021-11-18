@@ -3,8 +3,12 @@ const mongoose = require('mongoose');
 const { Schema, model } = mongoose;
 
 const UserSchema = new Schema({
-  _id : Schema.Types.ObjectId,
-  name: {
+  _id: Schema.Types.ObjectId,
+  FirstName: {
+    type: String,
+    required: true,
+  },
+  LastName: {
     type: String,
     required: true,
   },
@@ -17,7 +21,7 @@ const UserSchema = new Schema({
     required: true,
   },
   phone: Number,
-  isActive: { type:Boolean, default: false},
+  isActive: { type: Boolean, default: false },
   isAdmin: { type: Boolean, default: false },
 });
 

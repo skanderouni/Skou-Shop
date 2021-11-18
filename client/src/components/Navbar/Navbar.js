@@ -1,55 +1,63 @@
 import * as React from 'react';
-
-import './Navbar.css';
-
-import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import { IconButton } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
+import Link from '@mui/material/Link';
+import { AppBar, Toolbar } from '@mui/material';
 
-export default function Navbar() {
+const rightLink = {
+  fontSize: 16,
+  color: 'common.white',
+  ml: 3,
+};
+
+function Navbar() {
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position='static'>
-        <Toolbar>
-          <IconButton
-            size='large'
-            edge='start'
-            color='inherit'
-            aria-label='menu'
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography
+    <div>
+      <AppBar position='fixed'>
+        <Toolbar sx={{ justifyContent: 'space-between' }}>
+          <Box sx={{ flex: 1 }} />
+          <Link
             variant='h6'
-            component='div'
-            sx={{ flexGrow: 1 }}
-            style={{
-              display: 'flex',
-              fontFamily: 'Verdana, Geneva, Tahoma, sansSerif',
-              fontSize: 'large',
-            }}
-          >
-            Skou Shop
-          </Typography>
-          <Button
+            underline='none'
             color='inherit'
-            style={{ fontFamily: 'Verdana, Geneva, Tahoma, sansSerif' }}
+            href='/'
+            sx={{ fontSize: 24 }}
           >
-            Cart
-          </Button>
-          <Button
-            color='inherit'
-            style={{ fontFamily: 'Verdana, Geneva, Tahoma, sansSerif' }}
-          >
-            Login
-          </Button>
+            {'SkouShop'}
+          </Link>
+          <Box sx={{ flex: 1, display: 'flex', justifyContent: 'flex-end' }}>
+            <Link
+              color='inherit'
+              variant='h6'
+              underline='none'
+              href='/signin'
+              sx={rightLink}
+            >
+              {'Sign In'}
+            </Link>
+            <Link
+              color='inherit'
+              variant='h6'
+              underline='none'
+              href='/cart/:id?'
+              sx={rightLink}
+            >
+              {'Cart'}
+            </Link>
+            <Link
+              color='inherit'
+              variant='h6'
+              underline='none'
+              href='/register'
+              sx={{ ...rightLink }}
+            >
+              {'Sign Up'}
+            </Link>
+          </Box>
         </Toolbar>
       </AppBar>
-    </Box>
+      <Toolbar />
+    </div>
   );
 }
+
+export default Navbar;
